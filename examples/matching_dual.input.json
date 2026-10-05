@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "profile": "sarif-locations-v1",
+  "sarif": {
+    "version": "2.1.0",
+    "runs": [
+      {
+        "tool": {
+          "driver": {
+            "name": "synthetic"
+          }
+        },
+        "columnKind": "utf16CodeUnits",
+        "results": [
+          {
+            "message": {
+              "text": "invented"
+            },
+            "locations": [
+              {
+                "physicalLocation": {
+                  "artifactLocation": {
+                    "uri": "file:///synthetic/a.c",
+                    "index": 0
+                  },
+                  "region": {
+                    "startLine": 3,
+                    "endColumn": 5
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "artifacts": [
+          {
+            "location": {
+              "uri": "file:///synthetic/a.c"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

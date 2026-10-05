@@ -1,0 +1,42 @@
+[
+  {
+    "name": "absolute",
+    "exit": 0,
+    "matches_frozen_oracle": true
+  },
+  {
+    "name": "directory_chain",
+    "exit": 0,
+    "matches_frozen_oracle": true
+  },
+  {
+    "name": "matching_dual",
+    "exit": 0,
+    "matches_frozen_oracle": true
+  },
+  {
+    "name": "unknown_end",
+    "exit": 2,
+    "matches_frozen_oracle": true
+  },
+  {
+    "name": "dual_conflict",
+    "exit": 2,
+    "matches_frozen_oracle": true
+  },
+  {
+    "name": "missing_units",
+    "exit": 2,
+    "matches_frozen_oracle": true
+  },
+  {
+    "name": "empty_results",
+    "exit": 0,
+    "matches_frozen_oracle": true
+  },
+  {
+    "name": "unused_cycle",
+    "exit": 2,
+    "matches_frozen_oracle": true
+  }
+]

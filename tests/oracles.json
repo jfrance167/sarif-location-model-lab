@@ -1,0 +1,1855 @@
+[
+  {
+    "name": "absolute",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "file:///synthetic/a.c"
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "endColumn": 5
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "interpreted",
+      "reasons": [],
+      "runs": [
+        {
+          "run_index": 0,
+          "results_state": "supplied",
+          "results": [
+            {
+              "result_index": 0,
+              "locations_state": "supplied",
+              "locations": [
+                {
+                  "location_index": 0,
+                  "artifact": {
+                    "direct": {
+                      "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/artifactLocation",
+                      "uri": "file:///synthetic/a.c",
+                      "uri_base_id": null,
+                      "chain": [],
+                      "declared_locator": "file:///synthetic/a.c",
+                      "complete": true
+                    },
+                    "index": null,
+                    "agreement": "single_declaration"
+                  },
+                  "region": {
+                    "state": "supplied",
+                    "column_kind": "utf16CodeUnits",
+                    "start_line": 3,
+                    "start_column": 1,
+                    "end_line": 3,
+                    "end_column": 5,
+                    "defaulted": [
+                      "startColumn",
+                      "endLine"
+                    ],
+                    "end_bound": "exclusive"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "directory_chain",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "a.c",
+                        "uriBaseId": "SRC"
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "endColumn": 5
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "originalUriBaseIds": {
+              "ROOT": {
+                "uri": "file:///synthetic/project/"
+              },
+              "SRC": {
+                "uri": "src/",
+                "uriBaseId": "ROOT"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "interpreted",
+      "reasons": [],
+      "runs": [
+        {
+          "run_index": 0,
+          "results_state": "supplied",
+          "results": [
+            {
+              "result_index": 0,
+              "locations_state": "supplied",
+              "locations": [
+                {
+                  "location_index": 0,
+                  "artifact": {
+                    "direct": {
+                      "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/artifactLocation",
+                      "uri": "a.c",
+                      "uri_base_id": "SRC",
+                      "chain": [
+                        "SRC",
+                        "ROOT"
+                      ],
+                      "declared_locator": "file:///synthetic/project/src/a.c",
+                      "complete": true
+                    },
+                    "index": null,
+                    "agreement": "single_declaration"
+                  },
+                  "region": {
+                    "state": "supplied",
+                    "column_kind": "utf16CodeUnits",
+                    "start_line": 3,
+                    "start_column": 1,
+                    "end_line": 3,
+                    "end_column": 5,
+                    "defaulted": [
+                      "startColumn",
+                      "endLine"
+                    ],
+                    "end_bound": "exclusive"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "matching_dual",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "file:///synthetic/a.c",
+                        "index": 0
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "endColumn": 5
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "artifacts": [
+              {
+                "location": {
+                  "uri": "file:///synthetic/a.c"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "interpreted",
+      "reasons": [],
+      "runs": [
+        {
+          "run_index": 0,
+          "results_state": "supplied",
+          "results": [
+            {
+              "result_index": 0,
+              "locations_state": "supplied",
+              "locations": [
+                {
+                  "location_index": 0,
+                  "artifact": {
+                    "direct": {
+                      "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/artifactLocation",
+                      "uri": "file:///synthetic/a.c",
+                      "uri_base_id": null,
+                      "chain": [],
+                      "declared_locator": "file:///synthetic/a.c",
+                      "complete": true
+                    },
+                    "index": {
+                      "artifact_index": 0,
+                      "reference": {
+                        "pointer": "/sarif/runs/0/artifacts/0/location",
+                        "uri": "file:///synthetic/a.c",
+                        "uri_base_id": null,
+                        "chain": [],
+                        "declared_locator": "file:///synthetic/a.c",
+                        "complete": true
+                      }
+                    },
+                    "agreement": "declared_locator_match"
+                  },
+                  "region": {
+                    "state": "supplied",
+                    "column_kind": "utf16CodeUnits",
+                    "start_line": 3,
+                    "start_column": 1,
+                    "end_line": 3,
+                    "end_column": 5,
+                    "defaulted": [
+                      "startColumn",
+                      "endLine"
+                    ],
+                    "end_bound": "exclusive"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "index_out_of_range",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "index": 1
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "endColumn": 5
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "artifacts": [
+              {
+                "location": {
+                  "uri": "file:///synthetic/a.c"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "invalid",
+      "reasons": [
+        {
+          "code": "index_range",
+          "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/artifactLocation/index"
+        }
+      ],
+      "runs": []
+    }
+  },
+  {
+    "name": "bool_index",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "index": true
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "endColumn": 5
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "artifacts": [
+              {
+                "location": {
+                  "uri": "file:///synthetic/a.c"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "invalid",
+      "reasons": [
+        {
+          "code": "integer",
+          "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/artifactLocation/index"
+        }
+      ],
+      "runs": []
+    }
+  },
+  {
+    "name": "dual_conflict",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "file:///synthetic/b.c",
+                        "index": 0
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "endColumn": 5
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "artifacts": [
+              {
+                "location": {
+                  "uri": "file:///synthetic/a.c"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "invalid",
+      "reasons": [
+        {
+          "code": "reference_conflict",
+          "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/artifactLocation"
+        }
+      ],
+      "runs": []
+    }
+  },
+  {
+    "name": "missing_base",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "a.c",
+                        "uriBaseId": "ROOT"
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "endColumn": 5
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "originalUriBaseIds": {}
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "incomplete",
+      "reasons": [
+        {
+          "code": "locator_incomplete",
+          "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/artifactLocation"
+        }
+      ],
+      "runs": [
+        {
+          "run_index": 0,
+          "results_state": "supplied",
+          "results": [
+            {
+              "result_index": 0,
+              "locations_state": "supplied",
+              "locations": [
+                {
+                  "location_index": 0,
+                  "artifact": {
+                    "direct": {
+                      "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/artifactLocation",
+                      "uri": "a.c",
+                      "uri_base_id": "ROOT",
+                      "chain": [
+                        "ROOT"
+                      ],
+                      "declared_locator": null,
+                      "complete": false
+                    },
+                    "index": null,
+                    "agreement": "single_declaration"
+                  },
+                  "region": {
+                    "state": "supplied",
+                    "column_kind": "utf16CodeUnits",
+                    "start_line": 3,
+                    "start_column": 1,
+                    "end_line": 3,
+                    "end_column": 5,
+                    "defaulted": [
+                      "startColumn",
+                      "endLine"
+                    ],
+                    "end_bound": "exclusive"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "redacted_base",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "a.c",
+                        "uriBaseId": "ROOT"
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "endColumn": 5
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "originalUriBaseIds": {
+              "ROOT": {}
+            }
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "incomplete",
+      "reasons": [
+        {
+          "code": "locator_incomplete",
+          "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/artifactLocation"
+        }
+      ],
+      "runs": [
+        {
+          "run_index": 0,
+          "results_state": "supplied",
+          "results": [
+            {
+              "result_index": 0,
+              "locations_state": "supplied",
+              "locations": [
+                {
+                  "location_index": 0,
+                  "artifact": {
+                    "direct": {
+                      "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/artifactLocation",
+                      "uri": "a.c",
+                      "uri_base_id": "ROOT",
+                      "chain": [
+                        "ROOT"
+                      ],
+                      "declared_locator": null,
+                      "complete": false
+                    },
+                    "index": null,
+                    "agreement": "single_declaration"
+                  },
+                  "region": {
+                    "state": "supplied",
+                    "column_kind": "utf16CodeUnits",
+                    "start_line": 3,
+                    "start_column": 1,
+                    "end_line": 3,
+                    "end_column": 5,
+                    "defaulted": [
+                      "startColumn",
+                      "endLine"
+                    ],
+                    "end_bound": "exclusive"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "unused_cycle",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "file:///synthetic/a.c"
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "endColumn": 5
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "originalUriBaseIds": {
+              "A": {
+                "uri": "a/",
+                "uriBaseId": "B"
+              },
+              "B": {
+                "uri": "b/",
+                "uriBaseId": "A"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "invalid",
+      "reasons": [
+        {
+          "code": "base_cycle",
+          "pointer": "/sarif/runs/0/originalUriBaseIds/A"
+        }
+      ],
+      "runs": []
+    }
+  },
+  {
+    "name": "unknown_end",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "file:///synthetic/a.c"
+                      },
+                      "region": {
+                        "startLine": 3
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "incomplete",
+      "reasons": [
+        {
+          "code": "end_column_unknown",
+          "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/region"
+        }
+      ],
+      "runs": [
+        {
+          "run_index": 0,
+          "results_state": "supplied",
+          "results": [
+            {
+              "result_index": 0,
+              "locations_state": "supplied",
+              "locations": [
+                {
+                  "location_index": 0,
+                  "artifact": {
+                    "direct": {
+                      "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/artifactLocation",
+                      "uri": "file:///synthetic/a.c",
+                      "uri_base_id": null,
+                      "chain": [],
+                      "declared_locator": "file:///synthetic/a.c",
+                      "complete": true
+                    },
+                    "index": null,
+                    "agreement": "single_declaration"
+                  },
+                  "region": {
+                    "state": "supplied",
+                    "column_kind": "utf16CodeUnits",
+                    "start_line": 3,
+                    "start_column": 1,
+                    "end_line": 3,
+                    "end_column": null,
+                    "defaulted": [
+                      "startColumn",
+                      "endLine"
+                    ],
+                    "end_bound": "unknown_end_of_line"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "insertion_point",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "file:///synthetic/a.c"
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "endColumn": 4
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "interpreted",
+      "reasons": [],
+      "runs": [
+        {
+          "run_index": 0,
+          "results_state": "supplied",
+          "results": [
+            {
+              "result_index": 0,
+              "locations_state": "supplied",
+              "locations": [
+                {
+                  "location_index": 0,
+                  "artifact": {
+                    "direct": {
+                      "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/artifactLocation",
+                      "uri": "file:///synthetic/a.c",
+                      "uri_base_id": null,
+                      "chain": [],
+                      "declared_locator": "file:///synthetic/a.c",
+                      "complete": true
+                    },
+                    "index": null,
+                    "agreement": "single_declaration"
+                  },
+                  "region": {
+                    "state": "supplied",
+                    "column_kind": "utf16CodeUnits",
+                    "start_line": 3,
+                    "start_column": 4,
+                    "end_line": 3,
+                    "end_column": 4,
+                    "defaulted": [
+                      "endLine"
+                    ],
+                    "end_bound": "exclusive"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "reversed_columns",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "file:///synthetic/a.c"
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "endColumn": 3
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "invalid",
+      "reasons": [
+        {
+          "code": "region_order",
+          "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/region"
+        }
+      ],
+      "runs": []
+    }
+  },
+  {
+    "name": "codepoint_units",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "unicodeCodePoints",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "file:///synthetic/a.c"
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "endColumn": 5
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "interpreted",
+      "reasons": [],
+      "runs": [
+        {
+          "run_index": 0,
+          "results_state": "supplied",
+          "results": [
+            {
+              "result_index": 0,
+              "locations_state": "supplied",
+              "locations": [
+                {
+                  "location_index": 0,
+                  "artifact": {
+                    "direct": {
+                      "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/artifactLocation",
+                      "uri": "file:///synthetic/a.c",
+                      "uri_base_id": null,
+                      "chain": [],
+                      "declared_locator": "file:///synthetic/a.c",
+                      "complete": true
+                    },
+                    "index": null,
+                    "agreement": "single_declaration"
+                  },
+                  "region": {
+                    "state": "supplied",
+                    "column_kind": "unicodeCodePoints",
+                    "start_line": 3,
+                    "start_column": 1,
+                    "end_line": 3,
+                    "end_column": 5,
+                    "defaulted": [
+                      "startColumn",
+                      "endLine"
+                    ],
+                    "end_bound": "exclusive"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "missing_units",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "file:///synthetic/a.c"
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "endColumn": 5
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "invalid",
+      "reasons": [
+        {
+          "code": "column_kind_missing",
+          "pointer": "/sarif/runs/0/columnKind"
+        }
+      ],
+      "runs": []
+    }
+  },
+  {
+    "name": "unknown_units",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "bytes",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "file:///synthetic/a.c"
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "endColumn": 5
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "unsupported",
+      "reasons": [
+        {
+          "code": "column_kind",
+          "pointer": "/sarif/runs/0/columnKind"
+        }
+      ],
+      "runs": []
+    }
+  },
+  {
+    "name": "wrong_units_type",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": 4,
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "file:///synthetic/a.c"
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "endColumn": 5
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "invalid",
+      "reasons": [
+        {
+          "code": "shape",
+          "pointer": "/sarif/runs/0/columnKind"
+        }
+      ],
+      "runs": []
+    }
+  },
+  {
+    "name": "byte_region",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "file:///synthetic/a.c"
+                      },
+                      "region": {
+                        "byteOffset": 0,
+                        "byteLength": 1
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "unsupported",
+      "reasons": [
+        {
+          "code": "offset_region",
+          "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/region"
+        }
+      ],
+      "runs": []
+    }
+  },
+  {
+    "name": "percent_leaf",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "file:///synthetic/a%20.c"
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "endColumn": 5
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "unsupported",
+      "reasons": [
+        {
+          "code": "uri_profile",
+          "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/artifactLocation/uri"
+        }
+      ],
+      "runs": []
+    }
+  },
+  {
+    "name": "base_without_slash",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "file:///synthetic/a.c"
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "endColumn": 5
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "originalUriBaseIds": {
+              "ROOT": {
+                "uri": "file:///synthetic/project"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "unsupported",
+      "reasons": [
+        {
+          "code": "uri_profile",
+          "pointer": "/sarif/runs/0/originalUriBaseIds/ROOT/uri"
+        }
+      ],
+      "runs": []
+    }
+  },
+  {
+    "name": "no_region",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "file:///synthetic/a.c"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "incomplete",
+      "reasons": [
+        {
+          "code": "region_not_supplied",
+          "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/region"
+        }
+      ],
+      "runs": [
+        {
+          "run_index": 0,
+          "results_state": "supplied",
+          "results": [
+            {
+              "result_index": 0,
+              "locations_state": "supplied",
+              "locations": [
+                {
+                  "location_index": 0,
+                  "artifact": {
+                    "direct": {
+                      "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/artifactLocation",
+                      "uri": "file:///synthetic/a.c",
+                      "uri_base_id": null,
+                      "chain": [],
+                      "declared_locator": "file:///synthetic/a.c",
+                      "complete": true
+                    },
+                    "index": null,
+                    "agreement": "single_declaration"
+                  },
+                  "region": {
+                    "state": "not_supplied"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "absent_locations",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "incomplete",
+      "reasons": [
+        {
+          "code": "locations_not_supplied",
+          "pointer": "/sarif/runs/0/results/0/locations"
+        }
+      ],
+      "runs": [
+        {
+          "run_index": 0,
+          "results_state": "supplied",
+          "results": [
+            {
+              "result_index": 0,
+              "locations_state": "not_supplied",
+              "locations": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "empty_locations",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "incomplete",
+      "reasons": [
+        {
+          "code": "locations_not_supplied",
+          "pointer": "/sarif/runs/0/results/0/locations"
+        }
+      ],
+      "runs": [
+        {
+          "run_index": 0,
+          "results_state": "supplied",
+          "results": [
+            {
+              "result_index": 0,
+              "locations_state": "supplied",
+              "locations": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "null_results",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": null
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "incomplete",
+      "reasons": [
+        {
+          "code": "results_not_supplied",
+          "pointer": "/sarif/runs/0/results"
+        }
+      ],
+      "runs": [
+        {
+          "run_index": 0,
+          "results_state": "not_supplied",
+          "results": []
+        }
+      ]
+    }
+  },
+  {
+    "name": "empty_results",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": []
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "interpreted",
+      "reasons": [],
+      "runs": [
+        {
+          "run_index": 0,
+          "results_state": "supplied",
+          "results": []
+        }
+      ]
+    }
+  },
+  {
+    "name": "late_malformed",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "file:///synthetic/a.c"
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "endColumn": 5
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "message": {
+                  "text": 7
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "invalid",
+      "reasons": [
+        {
+          "code": "shape",
+          "pointer": "/sarif/runs/0/results/1/message/text"
+        }
+      ],
+      "runs": []
+    }
+  },
+  {
+    "name": "unused_invalid_over_unknown",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "file:///synthetic/a.c"
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "endColumn": 5
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "artifacts": [
+              {
+                "location": {
+                  "index": true
+                }
+              }
+            ]
+          }
+        ],
+        "extra": true
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "invalid",
+      "reasons": [
+        {
+          "code": "integer",
+          "pointer": "/sarif/runs/0/artifacts/0/location/index"
+        }
+      ],
+      "runs": []
+    }
+  },
+  {
+    "name": "duplicate_occurrences",
+    "input": {
+      "schema_version": 1,
+      "profile": "sarif-locations-v1",
+      "sarif": {
+        "version": "2.1.0",
+        "runs": [
+          {
+            "tool": {
+              "driver": {
+                "name": "synthetic"
+              }
+            },
+            "columnKind": "utf16CodeUnits",
+            "results": [
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "file:///synthetic/a.c"
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "endColumn": 5
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "message": {
+                  "text": "invented"
+                },
+                "locations": [
+                  {
+                    "physicalLocation": {
+                      "artifactLocation": {
+                        "uri": "file:///synthetic/a.c"
+                      },
+                      "region": {
+                        "startLine": 3,
+                        "endColumn": 5
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "expected": {
+      "schema_version": 1,
+      "status": "interpreted",
+      "reasons": [],
+      "runs": [
+        {
+          "run_index": 0,
+          "results_state": "supplied",
+          "results": [
+            {
+              "result_index": 0,
+              "locations_state": "supplied",
+              "locations": [
+                {
+                  "location_index": 0,
+                  "artifact": {
+                    "direct": {
+                      "pointer": "/sarif/runs/0/results/0/locations/0/physicalLocation/artifactLocation",
+                      "uri": "file:///synthetic/a.c",
+                      "uri_base_id": null,
+                      "chain": [],
+                      "declared_locator": "file:///synthetic/a.c",
+                      "complete": true
+                    },
+                    "index": null,
+                    "agreement": "single_declaration"
+                  },
+                  "region": {
+                    "state": "supplied",
+                    "column_kind": "utf16CodeUnits",
+                    "start_line": 3,
+                    "start_column": 1,
+                    "end_line": 3,
+                    "end_column": 5,
+                    "defaulted": [
+                      "startColumn",
+                      "endLine"
+                    ],
+                    "end_bound": "exclusive"
+                  }
+                }
+              ]
+            },
+            {
+              "result_index": 1,
+              "locations_state": "supplied",
+              "locations": [
+                {
+                  "location_index": 0,
+                  "artifact": {
+                    "direct": {
+                      "pointer": "/sarif/runs/0/results/1/locations/0/physicalLocation/artifactLocation",
+                      "uri": "file:///synthetic/a.c",
+                      "uri_base_id": null,
+                      "chain": [],
+                      "declared_locator": "file:///synthetic/a.c",
+                      "complete": true
+                    },
+                    "index": null,
+                    "agreement": "single_declaration"
+                  },
+                  "region": {
+                    "state": "supplied",
+                    "column_kind": "utf16CodeUnits",
+                    "start_line": 3,
+                    "start_column": 1,
+                    "end_line": 3,
+                    "end_column": 5,
+                    "defaulted": [
+                      "startColumn",
+                      "endLine"
+                    ],
+                    "end_bound": "exclusive"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

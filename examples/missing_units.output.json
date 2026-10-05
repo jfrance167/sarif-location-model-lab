@@ -1,0 +1,1 @@
+{"schema_version":1,"status":"invalid","reasons":[{"code":"column_kind_missing","pointer":"/sarif/runs/0/columnKind"}],"runs":[]}

@@ -1,0 +1,14 @@
+[
+  {
+    "path": "CONTRACT.md",
+    "sha256": "eb45d3fd0b936a4d3228c6185838ec84a8b04feb3209b681cdb079c0dd3d78ca"
+  },
+  {
+    "path": "tests/oracles.json",
+    "sha256": "e5c0f1b3ff432f142c2c246cfbe1a14895e20700396cadabcc1cff601599c8ed"
+  },
+  {
+    "path": "research/author_oracles.py",
+    "sha256": "0e1bb9696f927d53b50ea23ae05adf3d77c7dba6be30dbc563b7c300eed37302"
+  }
+]
